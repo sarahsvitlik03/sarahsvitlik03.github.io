@@ -170,12 +170,26 @@ a:hover { color: var(--accent-dark); }
 
 .email-link {
   color: var(--accent) !important;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: underline;
   text-decoration-color: currentColor;
   text-decoration-thickness: 2px;
   text-underline-offset: 0.22em;
 }
+
+/* Contact links on the homepage */
+#ba8d7044-89b2-8208-bce3-81c74f05ed7c {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+}
+#ba8d7044-89b2-8208-bce3-81c74f05ed7c > .column {
+  width: auto !important;
+  overflow: visible;
+}
+#ba8d7044-89b2-8208-bce3-81c74f05ed7c > .column:last-child { display: none; }
+#ba8d7044-89b2-8208-bce3-81c74f05ed7c p { margin: 0; white-space: nowrap; }
 
 /* Project detail pages */
 .page-body > h1:first-child + p a {
@@ -247,6 +261,7 @@ a:hover { color: var(--accent-dark); }
   .column-list:first-child .image img { width: 150px !important; }
   .page-cover-image { height: 200px; }
   .page-body .column-list:has(.to-do-list) .column:last-child { padding: 1.5rem 0 0; border-top: 1px solid var(--line); border-left: 0; }
+  #ba8d7044-89b2-8208-bce3-81c74f05ed7c { grid-template-columns: 1fr; gap: 0.8rem; }
   table.collection-content { min-width: 580px; }
   .collection-content-wrapper { overflow-x: auto; padding-bottom: 0.5rem; }
 }
