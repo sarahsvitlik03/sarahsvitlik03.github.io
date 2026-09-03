@@ -6,6 +6,7 @@
   --accent: #7356d8;
   --accent-dark: #513bb1;
   --pink: #ff6e9a;
+  --section-space: clamp(2.25rem, 4vw, 3rem);
 }
 
 html { scroll-behavior: smooth; }
@@ -161,7 +162,14 @@ mark.highlight-pink { color: #9e2559; background: #ffe0ec; }
 mark.highlight-purple { background: #e9e0ff; }
 mark.highlight-teal { background: #d9f7f1; }
 
-hr { margin: 3.2rem 0 !important; border-bottom-color: var(--line) !important; }
+hr {
+  width: 100%;
+  height: 1px;
+  margin: var(--section-space) 0 !important;
+  border: 0;
+  border-bottom: 1px solid var(--line) !important;
+}
+.page-body > hr + h1 { margin-top: 0 !important; }
 .collection-title { display: none; }
 .collection-content-wrapper { overflow: visible; }
 table.collection-content { width: 100%; border-collapse: separate; border-spacing: 0 0.75rem; }
@@ -215,7 +223,7 @@ a:hover { color: var(--accent-dark); }
 .project-page h1 { margin-top: 1.65rem !important; font-size: clamp(1.3rem, 2.4vw, 1.75rem) !important; }
 .project-page p { font-size: 0.96rem; line-height: 1.62; }
 .project-page .page-body > * { margin-top: 0.9rem; margin-bottom: 0.9rem; }
-.project-page hr { margin: 1.8rem 0 !important; }
+.project-page hr { margin: var(--section-space) 0 !important; }
 .project-summary {
   position: relative;
   overflow: hidden;
