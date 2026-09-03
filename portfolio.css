@@ -110,6 +110,15 @@ header .properties th { padding-right: 0.65rem; color: var(--muted); font-size: 
   display: block;
   transform: translateX(2px);
 }
+body:not(.project-page) .page-header-icon {
+  width: auto;
+  height: auto;
+  margin-bottom: 0.8rem;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.project-page .page-header-icon-with-cover { display: none; }
 
 .page-title {
   font-size: clamp(2.5rem, 7vw, 5.3rem) !important;
