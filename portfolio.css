@@ -320,6 +320,8 @@ a:hover { color: var(--accent-dark); }
   font-size: 0.78rem;
   font-weight: 600;
 }
+.project-page .project-summary + p { display: none; }
+.project-page .project-summary + p + hr { display: none; }
 .project-page .column-list:has(.to-do-list) { gap: 1.5rem !important; padding: 1.25rem; }
 .project-page .column-list:has(.to-do-list) .column:last-child { padding-left: 1.5rem; }
 .page-body > h1:first-child + p a {
