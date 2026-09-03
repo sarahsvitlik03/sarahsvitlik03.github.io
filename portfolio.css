@@ -105,6 +105,10 @@ header .properties th { padding-right: 0.65rem; color: var(--muted); font-size: 
   background: linear-gradient(135deg, #f8d8ea, #ddd4ff);
   box-shadow: 0 12px 30px rgba(117, 81, 197, 0.18);
 }
+.page-header-icon .icon {
+  display: block;
+  transform: translateX(2px);
+}
 
 .page-title {
   font-size: clamp(2.5rem, 7vw, 5.3rem) !important;
