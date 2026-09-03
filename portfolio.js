@@ -28,5 +28,20 @@ document.addEventListener("DOMContentLoaded", () => {
     summary.append(liveLink);
   }
 
+  const expoHeading = Array.from(body.querySelectorAll("h1, h2, h3")).find(
+    (heading) => heading.textContent.trim() === "Senior Design Expo Page"
+  );
+  const expoLink = expoHeading?.nextElementSibling;
+  if (expoHeading && expoLink?.tagName === "P") {
+    expoHeading.remove();
+    expoLink.classList.add("project-expo-link");
+    const link = expoLink.querySelector("a");
+    if (link) {
+      link.setAttribute("aria-label", "Visit the Senior Design Expo page");
+      link.dataset.expoSite = "Senior Design Expo ↗";
+    }
+    summary.append(expoLink);
+  }
+
   body.prepend(summary);
 });
