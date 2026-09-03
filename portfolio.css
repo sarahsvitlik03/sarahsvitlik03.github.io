@@ -291,16 +291,26 @@ a:hover { color: var(--accent-dark); }
 .project-summary .project-expo-link a {
   display: inline-flex;
   align-items: center;
-  padding: 0.55rem 0.8rem;
-  border: 1px solid rgba(115, 86, 216, 0.28);
+  gap: 0.4rem;
+  padding: 0.68rem 0.95rem;
   border-radius: 999px;
-  color: var(--accent-dark) !important;
-  font-size: 0.84rem;
-  font-weight: 650;
+  color: #fff !important;
+  font-size: 0.9rem;
+  font-weight: 700;
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.65);
+  background: linear-gradient(120deg, var(--accent), var(--pink));
+  box-shadow: 0 8px 20px rgba(113, 78, 207, 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
-.project-summary .project-expo-link a::after { content: " ↗"; }
+.project-summary .project-expo-link a:hover { color: #fff !important; transform: translateY(-2px); }
+.project-summary .project-expo-link a::after {
+  content: "Visit Senior Design Expo ↗";
+  margin-left: 0.35rem;
+  padding-left: 0.55rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.45);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
 .project-page .column-list:has(.to-do-list) { gap: 1.5rem !important; padding: 1.25rem; }
 .project-page .column-list:has(.to-do-list) .column:last-child { padding-left: 1.5rem; }
 .page-body > h1:first-child + p a {
@@ -359,6 +369,34 @@ a:hover { color: var(--accent-dark); }
   color: var(--accent-dark);
   background: #f4f0ff;
   overflow-wrap: anywhere;
+}
+.project-page .source {
+  position: relative;
+  padding: 1.2rem 1.15rem 1rem;
+  border-color: rgba(115, 86, 216, 0.24);
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 204, 225, 0.7), transparent 8rem),
+    linear-gradient(120deg, #f5f1ff, #fff8fb);
+  box-shadow: 0 8px 20px rgba(91, 67, 148, 0.08);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.project-page .source::before {
+  content: "⌘  GITHUB REPOSITORY";
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--accent);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.project-page .source:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 13px 26px rgba(91, 67, 148, 0.14);
 }
 
 @keyframes reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
