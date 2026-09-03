@@ -212,6 +212,41 @@ a:hover { color: var(--accent-dark); }
 .project-page p { font-size: 0.96rem; line-height: 1.62; }
 .project-page .page-body > * { margin-top: 0.9rem; margin-bottom: 0.9rem; }
 .project-page hr { margin: 1.8rem 0 !important; }
+.project-summary {
+  margin: 0 0 1.25rem !important;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(115, 86, 216, 0.17);
+  border-radius: 16px;
+  background: linear-gradient(120deg, rgba(244, 240, 255, 0.9), rgba(255, 244, 249, 0.7));
+}
+.project-summary h1 {
+  margin: 0 0 0.5rem !important;
+  font-size: clamp(1.25rem, 2.3vw, 1.6rem) !important;
+}
+.project-summary p { margin: 0; }
+.project-summary .project-live-link { margin-top: 1rem; }
+.project-summary .project-live-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.68rem 0.95rem;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: linear-gradient(120deg, var(--accent), var(--pink));
+  box-shadow: 0 8px 20px rgba(113, 78, 207, 0.2);
+}
+.project-summary .project-live-link a:hover { color: #fff; transform: translateY(-2px); }
+.project-summary .project-live-link a::after {
+  content: attr(data-live-site);
+  margin-left: 0.35rem;
+  padding-left: 0.55rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.45);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
 .project-page .column-list:has(.to-do-list) { gap: 1.5rem !important; padding: 1.25rem; }
 .project-page .column-list:has(.to-do-list) .column:last-child { padding-left: 1.5rem; }
 .page-body > h1:first-child + p a {
