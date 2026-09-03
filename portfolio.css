@@ -213,11 +213,25 @@ a:hover { color: var(--accent-dark); }
 .project-page .page-body > * { margin-top: 0.9rem; margin-bottom: 0.9rem; }
 .project-page hr { margin: 1.8rem 0 !important; }
 .project-summary {
+  position: relative;
+  overflow: hidden;
   margin: 0 0 1.25rem !important;
-  padding: 1.1rem 1.25rem;
-  border: 1px solid rgba(115, 86, 216, 0.17);
-  border-radius: 16px;
-  background: linear-gradient(120deg, rgba(244, 240, 255, 0.9), rgba(255, 244, 249, 0.7));
+  padding: 1.35rem 1.45rem;
+  border: 1px solid rgba(182, 128, 196, 0.28);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 198, 223, 0.7), transparent 12rem),
+    linear-gradient(120deg, rgba(244, 240, 255, 0.95), rgba(255, 244, 249, 0.9));
+  box-shadow: 0 10px 28px rgba(99, 71, 151, 0.1);
+}
+.project-summary::before {
+  content: "PROJECT OVERVIEW";
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
 .project-summary h1 {
   margin: 0 0 0.5rem !important;
@@ -237,6 +251,7 @@ a:hover { color: var(--accent-dark); }
   text-decoration: none;
   background: linear-gradient(120deg, var(--accent), var(--pink));
   box-shadow: 0 8px 20px rgba(113, 78, 207, 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 .project-summary .project-live-link a:hover { color: #fff; transform: translateY(-2px); }
 .project-summary .project-live-link a::after {
