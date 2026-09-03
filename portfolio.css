@@ -110,6 +110,15 @@ table.collection-content tbody tr:hover td:last-child { transform: translateX(-5
 a { color: var(--accent); text-underline-offset: 0.2em; transition: color 180ms ease; }
 a:hover { color: var(--accent-dark); }
 
+.email-link {
+  color: var(--accent) !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+}
+
 @keyframes reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
 @media (max-width: 680px) {
