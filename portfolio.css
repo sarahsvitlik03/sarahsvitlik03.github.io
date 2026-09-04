@@ -417,14 +417,59 @@ a:hover { color: var(--accent-dark); }
 @keyframes coverReveal { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
 @media (max-width: 680px) {
-  body { padding: 0.75rem !important; }
-  .page { padding: 1.5rem; border-radius: 20px; }
-  .back-button { top: 0.8rem; left: 0.8rem; }
-  .column-list { flex-direction: column; align-items: flex-start; }
-  .column-list:first-child .image img { width: 150px !important; }
-  .project-page .page-cover-image { height: 180px; }
+  :root { --section-space: 2.25rem; }
+  body { padding: 0.65rem !important; }
+  .page { padding: 1.35rem; border-radius: 20px; }
+  .back-button { top: 0.75rem; left: 0.75rem; min-height: 44px; }
+
+  header { margin-bottom: 2.25rem; }
+  .page-title { font-size: clamp(2.3rem, 13vw, 3.6rem) !important; }
+  .column-list { flex-direction: column; align-items: stretch; gap: 1.35rem !important; }
+  .column-list > .column { width: 100% !important; }
+  .column-list:first-child { align-items: center; text-align: center; }
+  .column-list:first-child .image img { width: 138px !important; }
+  .column-list:first-child h1 { font-size: 1.55rem !important; }
+  body:not(.project-page) [id="9d0d7044-89b2-832e-8d0f-01fbb32312d4"] { font-size: 1.45rem !important; }
+  body:not(.project-page) [id="67ad7044-89b2-8376-9612-017486a80560"] { font-size: 1rem !important; }
+  p { font-size: 0.98rem; line-height: 1.7; }
+  h1 { font-size: 1.45rem !important; }
+
+  /* Projects become tap-friendly cards instead of a scrolling table. */
+  .collection-content-wrapper { overflow: visible; }
+  table.collection-content,
+  table.collection-content tbody,
+  table.collection-content tr,
+  table.collection-content td { display: block; width: 100%; }
+  table.collection-content { min-width: 0; border-spacing: 0; }
+  table.collection-content thead { display: none; }
+  table.collection-content tr { margin: 0 0 0.75rem; }
+  table.collection-content td {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--line) !important;
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.72);
+  }
+  table.collection-content td:first-child { border-radius: 14px 14px 0 0 !important; border-bottom: 0 !important; }
+  table.collection-content td:last-child { border-radius: 0 0 14px 14px !important; border-top: 1px dashed var(--line) !important; }
+  table.collection-content tbody tr:hover td { transform: none; }
+  .cell-title a { display: inline-flex; min-height: 36px; align-items: center; }
+  .selected-value { margin: 0.12rem 0.18rem 0.12rem 0; }
+
+  #ba8d7044-89b2-8208-bce3-81c74f05ed7c { grid-template-columns: 1fr; gap: 0.55rem; }
+  #ba8d7044-89b2-8208-bce3-81c74f05ed7c p { white-space: normal; }
+  #ba8d7044-89b2-8208-bce3-81c74f05ed7c a { display: inline-block; min-height: 32px; }
+
+  .project-page .page { padding: 1.15rem; }
+  .project-page header { margin-bottom: 1.35rem; }
+  .project-page .page-cover-image { height: 165px; border-radius: 15px; }
+  .project-page .page-title { font-size: 2.15rem !important; }
+  .project-summary { padding: 1.1rem; border-radius: 15px; }
+  .project-summary .project-live-link a,
+  .project-summary .project-expo-link a { width: 100%; min-height: 44px; justify-content: center; text-align: center; }
+  .project-summary .project-live-link a::after,
+  .project-summary .project-expo-link a::after { display: none; }
+  .project-page .page-body .column-list:has(.to-do-list) { padding: 1rem; border-radius: 15px; }
   .project-page .page-body .column-list:has(.to-do-list) .column:last-child { padding: 1rem 0 0; border-top: 1px solid var(--line); border-left: 0; }
-  #ba8d7044-89b2-8208-bce3-81c74f05ed7c { grid-template-columns: 1fr; gap: 0.8rem; }
-  table.collection-content { min-width: 580px; }
-  .collection-content-wrapper { overflow-x: auto; padding-bottom: 0.5rem; }
+  .bulleted-list li, .to-do-list li { padding: 0.65rem 0.7rem 0.65rem 1.75rem; }
+  .project-page .source { padding: 1rem; font-size: 0.76rem; }
 }
