@@ -22,8 +22,9 @@ document.addEventListener("DOMContentLoaded", () => {
     liveLink.classList.add("project-live-link");
     const link = liveLink.querySelector("a");
     if (link) {
-      link.setAttribute("aria-label", `Visit the live ${link.textContent.trim()} website`);
-      link.dataset.liveSite = "Visit live site ↗";
+      const isVideo = /youtube\.com|youtu\.be/i.test(link.href);
+      link.setAttribute("aria-label", isVideo ? `Watch the ${link.textContent.trim()} YouTube demo` : `Visit the live ${link.textContent.trim()} website`);
+      link.dataset.liveSite = isVideo ? "Watch YouTube demo ↗" : "Visit live site ↗";
     }
     summary.append(liveLink);
   }
