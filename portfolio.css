@@ -225,64 +225,6 @@ a:hover { color: var(--accent-dark); }
 #ba8d7044-89b2-8208-bce3-81c74f05ed7c > .column:last-child { display: none; }
 #ba8d7044-89b2-8208-bce3-81c74f05ed7c p { margin: 0; white-space: nowrap; }
 
-/* Quick context for hiring teams */
-.recruiter-snapshot {
-  margin: 1.25rem 0 2.75rem;
-  padding: clamp(1.25rem, 3vw, 1.8rem);
-  border: 1px solid rgba(115, 86, 216, 0.2);
-  border-radius: 20px;
-  background:
-    radial-gradient(circle at 100% 0%, rgba(255, 197, 222, 0.55), transparent 13rem),
-    linear-gradient(120deg, rgba(246, 243, 255, 0.94), rgba(255, 250, 252, 0.9));
-  box-shadow: 0 12px 28px rgba(83, 60, 143, 0.09);
-}
-.recruiter-snapshot-intro { max-width: 45rem; }
-.recruiter-eyebrow {
-  margin: 0 0 0.45rem !important;
-  color: var(--accent);
-  font-size: 0.68rem !important;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-.recruiter-snapshot h2 {
-  margin: 0 !important;
-  font-size: clamp(1.3rem, 2.4vw, 1.75rem) !important;
-  letter-spacing: -0.035em;
-}
-.recruiter-points {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 1.2rem;
-}
-.recruiter-points article {
-  min-width: 0;
-  padding: 0.85rem 0.9rem;
-  border: 1px solid rgba(115, 86, 216, 0.12);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.58);
-}
-.recruiter-points span { color: var(--accent); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; }
-.recruiter-points h3 { margin: 0.28rem 0 !important; font-size: 0.96rem !important; }
-.recruiter-points p { margin: 0 !important; color: var(--muted); font-size: 0.84rem !important; line-height: 1.45; }
-.recruiter-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1.1rem; }
-.recruiter-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0.62rem 0.9rem;
-  border: 1px solid rgba(115, 86, 216, 0.28);
-  border-radius: 999px;
-  font-size: 0.88rem;
-  font-weight: 750;
-  text-decoration: none;
-}
-.recruiter-action-primary { color: #fff !important; border-color: transparent; background: linear-gradient(120deg, var(--accent), var(--pink)); box-shadow: 0 8px 18px rgba(113, 78, 207, 0.18); }
-.recruiter-action-primary:hover { color: #fff !important; transform: translateY(-2px); }
-.recruiter-action-secondary { background: rgba(255, 255, 255, 0.62); }
-.recruiter-action-secondary:hover { background: #fff; transform: translateY(-2px); }
-
 /* Project detail pages */
 .project-page .page { padding: clamp(1.5rem, 3.6vw, 3rem); }
 .project-page header { margin-bottom: 2rem; }
@@ -531,20 +473,6 @@ a:hover { color: var(--accent-dark); }
   transform: translateY(-3px);
   box-shadow: 0 13px 26px rgba(91, 67, 148, 0.14);
 }
-.project-page .source .repo-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.58rem 0.8rem;
-  border-radius: 999px;
-  color: #fff !important;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  font-size: 0.86rem;
-  font-weight: 750;
-  text-decoration: none;
-  background: linear-gradient(120deg, var(--accent), var(--pink));
-}
-.project-page .source .repo-link:hover { color: #fff !important; }
 
 @keyframes reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes coverReveal { from { opacity: 0; transform: scale(1.025); } to { opacity: 1; transform: scale(1); } }
@@ -562,11 +490,6 @@ a:hover { color: var(--accent-dark); }
   .column-list:first-child { align-items: center; text-align: center; }
   .column-list:first-child .image img { width: 138px !important; }
   .column-list:first-child h1 { font-size: 1.55rem !important; }
-  .recruiter-snapshot { margin: 1rem 0 2.25rem; padding: 1.15rem; border-radius: 16px; }
-  .recruiter-points { grid-template-columns: 1fr; gap: 0.55rem; margin-top: 0.95rem; }
-  .recruiter-points article { padding: 0.75rem 0.8rem; }
-  .recruiter-actions { display: grid; grid-template-columns: 1fr; }
-  .recruiter-action { width: 100%; }
   body:not(.project-page) [id="9d0d7044-89b2-832e-8d0f-01fbb32312d4"] { font-size: 1.45rem !important; }
   body:not(.project-page) [id="67ad7044-89b2-8376-9612-017486a80560"] { font-size: 1rem !important; }
   p { font-size: 0.98rem; line-height: 1.7; }

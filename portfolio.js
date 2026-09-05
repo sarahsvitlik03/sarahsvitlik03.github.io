@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (!document.body.classList.contains("project-page")) {
-    enhanceHomePage();
-    return;
-  }
+  if (!document.body.classList.contains("project-page")) return;
 
   const body = document.querySelector(".page-body");
   const detailsHeading = Array.from(body?.querySelectorAll("h1, h2, h3") ?? []).find(
@@ -73,63 +70,4 @@ document.addEventListener("DOMContentLoaded", () => {
     photoSection.append(heading, gallery);
     summary.after(photoSection);
   }
-
-  document.querySelectorAll(".project-page .source").forEach((source) => {
-    const repositoryUrl = source.textContent.trim();
-    if (!/^https:\/\/github\.com\//i.test(repositoryUrl)) return;
-
-    const link = document.createElement("a");
-    link.className = "repo-link";
-    link.href = repositoryUrl;
-    link.target = "_blank";
-    link.rel = "noopener";
-    link.setAttribute("aria-label", "View the project repository on GitHub");
-    link.innerHTML = '<span>View repository</span><span aria-hidden="true">↗</span>';
-    source.replaceChildren(link);
-  });
 });
-
-function enhanceHomePage() {
-  const pageBody = document.querySelector(".page-body");
-  const hero = pageBody?.querySelector(":scope > .column-list");
-  if (!pageBody || !hero || pageBody.querySelector(".recruiter-snapshot")) return;
-
-  const resumeLink = pageBody.querySelector('a[href$=".pdf"]');
-  const linkedinLink = pageBody.querySelector('a[href*="linkedin.com"]');
-  const snapshot = document.createElement("section");
-  snapshot.className = "recruiter-snapshot";
-  snapshot.setAttribute("aria-labelledby", "recruiter-snapshot-title");
-  snapshot.innerHTML = `
-    <div class="recruiter-snapshot-intro">
-      <p class="recruiter-eyebrow">RECRUITER SNAPSHOT</p>
-      <h2 id="recruiter-snapshot-title">A product-minded engineer who can build across the stack.</h2>
-    </div>
-    <div class="recruiter-points">
-      <article><span>01</span><h3>Mobile + web</h3><p>Builds polished iOS, Android, and web experiences.</p></article>
-      <article><span>02</span><h3>End-to-end delivery</h3><p>Connects thoughtful interfaces to APIs, data, and deployment.</p></article>
-      <article><span>03</span><h3>Collaborative systems</h3><p>Contributes confidently across teams, platforms, and codebases.</p></article>
-    </div>
-    <div class="recruiter-actions"></div>
-  `;
-
-  const actions = snapshot.querySelector(".recruiter-actions");
-  if (resumeLink) {
-    const resume = resumeLink.cloneNode(true);
-    resume.className = "recruiter-action recruiter-action-primary";
-    resume.target = "_blank";
-    resume.rel = "noopener";
-    resume.textContent = "View résumé ↗";
-    actions.append(resume);
-  }
-  if (linkedinLink) {
-    const linkedin = linkedinLink.cloneNode(true);
-    linkedin.className = "recruiter-action recruiter-action-secondary";
-    linkedin.target = "_blank";
-    linkedin.rel = "noopener";
-    linkedin.textContent = "Connect on LinkedIn ↗";
-    actions.append(linkedin);
-  }
-
-  if (!actions.children.length) actions.remove();
-  hero.after(snapshot);
-}
