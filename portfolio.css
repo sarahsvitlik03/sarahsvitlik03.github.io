@@ -365,6 +365,14 @@ a:hover { color: var(--accent-dark); }
   object-fit: contain;
   background: #fff;
 }
+.project-page[data-project-photos*="station-engine"] .project-photo-grid img {
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  background: #fff;
+}
+.project-page .project-photos + p + hr { display: none; }
+.project-page .project-photos + p { display: none; }
 .project-page .column-list:has(.to-do-list) { gap: 1.5rem !important; padding: 1.25rem; }
 .project-page .column-list:has(.to-do-list) .column:last-child { padding-left: 1.5rem; }
 .page-body > h1:first-child + p a {
@@ -509,6 +517,7 @@ a:hover { color: var(--accent-dark); }
   .project-photo-grid img { height: auto; max-height: 420px; object-fit: contain; background: #fff; }
   .project-page[data-project-photos*="date-spark"] .project-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-page[data-project-photos*="date-spark"] .project-photo-grid img { max-height: 330px; }
+  .project-page[data-project-photos*="station-engine"] .project-photo-grid img { max-height: 420px; }
   .project-summary .project-live-link a,
   .project-summary .project-expo-link a { width: 100%; min-height: 44px; justify-content: center; text-align: center; }
   .project-summary .project-live-link a::after,
