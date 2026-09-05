@@ -45,19 +45,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   body.prepend(summary);
 
-  const photoSource = document.body.dataset.projectPhoto;
-  if (photoSource) {
+  const photoSources = document.body.dataset.projectPhotos?.split("|").filter(Boolean);
+  if (photoSources?.length) {
     const photoSection = document.createElement("section");
     photoSection.className = "project-photos";
     const heading = document.createElement("h2");
     heading.textContent = "Project Photos";
-    const figure = document.createElement("figure");
-    const image = document.createElement("img");
-    image.src = photoSource;
-    image.alt = `${document.title} project screenshot`;
-    image.loading = "lazy";
-    figure.append(image);
-    photoSection.append(heading, figure);
+    const gallery = document.createElement("div");
+    gallery.className = "project-photo-grid";
+    photoSources.forEach((photoSource, index) => {
+      const link = document.createElement("a");
+      link.href = photoSource;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.setAttribute("aria-label", `Open project photo ${index + 1} at full size`);
+      const image = document.createElement("img");
+      image.src = photoSource;
+      image.alt = `${document.title} project screenshot ${index + 1}`;
+      image.loading = index === 0 ? "eager" : "lazy";
+      link.append(image);
+      gallery.append(link);
+    });
+    photoSection.append(heading, gallery);
     summary.after(photoSection);
   }
 });
