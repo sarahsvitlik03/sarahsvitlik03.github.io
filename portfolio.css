@@ -232,6 +232,7 @@ a:hover { color: var(--accent-dark); }
   height: clamp(180px, 23vw, 270px);
   margin-bottom: 1rem;
 }
+.project-page[data-project-photo] .page-cover-image { display: none; }
 .project-page h1 { margin-top: 1.65rem !important; font-size: clamp(1.3rem, 2.4vw, 1.75rem) !important; }
 .project-page p { font-size: 0.96rem; line-height: 1.62; }
 .project-page .page-body > * { margin-top: 0.9rem; margin-bottom: 0.9rem; }
@@ -325,6 +326,27 @@ a:hover { color: var(--accent-dark); }
 }
 .project-page .project-summary + p { display: none; }
 .project-page .project-summary + p + hr { display: none; }
+.project-photos {
+  margin: 1.25rem 0 !important;
+  padding: 1.1rem;
+  border: 1px solid rgba(115, 86, 216, 0.15);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.48);
+}
+.project-photos h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+.project-photos figure { margin: 0; }
+.project-photos img {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(61, 42, 112, 0.12);
+}
 .project-page .column-list:has(.to-do-list) { gap: 1.5rem !important; padding: 1.25rem; }
 .project-page .column-list:has(.to-do-list) .column:last-child { padding-left: 1.5rem; }
 .page-body > h1:first-child + p a {
@@ -464,6 +486,8 @@ a:hover { color: var(--accent-dark); }
   .project-page .page-cover-image { height: 165px; border-radius: 15px; }
   .project-page .page-title { font-size: 2.15rem !important; }
   .project-summary { padding: 1.1rem; border-radius: 15px; }
+  .project-photos { padding: 0.85rem; border-radius: 15px; }
+  .project-photos img { max-height: 270px; }
   .project-summary .project-live-link a,
   .project-summary .project-expo-link a { width: 100%; min-height: 44px; justify-content: center; text-align: center; }
   .project-summary .project-live-link a::after,

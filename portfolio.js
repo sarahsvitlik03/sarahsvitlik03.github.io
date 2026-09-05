@@ -44,4 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   body.prepend(summary);
+
+  const photoSource = document.body.dataset.projectPhoto;
+  if (photoSource) {
+    const photoSection = document.createElement("section");
+    photoSection.className = "project-photos";
+    const heading = document.createElement("h2");
+    heading.textContent = "Project Photos";
+    const figure = document.createElement("figure");
+    const image = document.createElement("img");
+    image.src = photoSource;
+    image.alt = `${document.title} project screenshot`;
+    image.loading = "lazy";
+    figure.append(image);
+    photoSection.append(heading, figure);
+    summary.after(photoSection);
+  }
 });
