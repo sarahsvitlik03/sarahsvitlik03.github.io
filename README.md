@@ -17,6 +17,8 @@ Then open `http://127.0.0.1:4173/`.
 - `index.html` — portfolio homepage
 - `portfolio.css` — shared visual and responsive styles
 - `portfolio.js` — small enhancements for project detail pages
-- Project HTML files — individual project detail pages
+- `projects/` — clean, readable URLs for each project detail page
+- `assets/home/` — profile photo and résumé
+- `assets/projects/` — project screenshots and gallery images
 
 The site uses only static HTML, CSS, JavaScript, and local image/PDF assets.
