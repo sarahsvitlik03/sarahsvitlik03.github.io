@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const pageBody = document.querySelector(".page-body");
   const hero = pageBody?.querySelector(".column-list");
   const introCopy = hero?.querySelector(".column:last-child");
-  if (!pageBody || !hero || !introCopy) return;
+  const titleEl = document.querySelector(".page-title");
+  if (!pageBody || !hero || !introCopy || !titleEl) return;
 
   const roles = [
     "software engineer",
@@ -16,11 +17,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sourceCode = `const sarah = {
   role: "Software Engineer",
-  location: "Waterbury, CT",
-  experience: "4+ years",
-  stack: ["Swift", "Kotlin", "React", "Flask"],
-  focus: "clean architecture + thoughtful UX"
+  stack: ["Swift", "React", "Flask"]
 };`;
+
+  const originalTitle = titleEl.textContent.trim();
+  const sparkleMatch = originalTitle.match(/\s*(💫)$/);
+  const titleText = originalTitle.replace(/\s*💫\s*$/, "");
+  const sparkle = sparkleMatch ? sparkleMatch[1] : "";
+  titleEl.setAttribute("aria-label", originalTitle);
+  titleEl.innerHTML = `
+    <span class="title-ghost" aria-hidden="true">${originalTitle}</span>
+    <span class="title-live">
+      <span class="title-typed"></span><span class="hero-caret hero-caret--title" aria-hidden="true"></span><span class="title-sparkle" aria-hidden="true">${sparkle}</span>
+    </span>
+  `;
 
   const tagline = document.createElement("p");
   tagline.className = "hero-typewriter";
@@ -38,11 +48,33 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     <pre class="hero-terminal__body"><code class="hero-terminal__code"></code><span class="hero-caret hero-caret--code" aria-hidden="true"></span></pre>
   `;
-  hero.after(terminal);
+  introCopy.append(terminal);
 
+  const typedTitle = titleEl.querySelector(".title-typed");
+  const titleCaret = titleEl.querySelector(".hero-caret--title");
+  const sparkleEl = titleEl.querySelector(".title-sparkle");
   const typedRole = tagline.querySelector(".hero-typewriter__text");
   const codeEl = terminal.querySelector(".hero-terminal__code");
   const statusEl = terminal.querySelector(".hero-terminal__status");
+
+  const aboutHeading = Array.from(pageBody.querySelectorAll("h1")).find((heading) =>
+    /about me/i.test(heading.textContent)
+  );
+  const aboutCopy = aboutHeading?.nextElementSibling;
+  if (aboutCopy?.tagName === "P") {
+    aboutCopy.classList.add("about-preview");
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "about-toggle";
+    toggle.textContent = "read more";
+    toggle.addEventListener("click", () => {
+      const open = aboutCopy.classList.toggle("is-open");
+      toggle.textContent = open ? "show less" : "read more";
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+    toggle.setAttribute("aria-expanded", "false");
+    aboutCopy.after(toggle);
+  }
 
   const escapeHtml = (value) =>
     value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -86,22 +118,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const typeCode = async () => {
     for (let i = 0; i <= sourceCode.length; i += 1) {
       codeEl.innerHTML = highlight(sourceCode.slice(0, i));
-      await wait(sourceCode[i] === "\n" ? 90 : 18);
+      await wait(sourceCode[i] === "\n" ? 70 : 16);
     }
     statusEl.textContent = "ready";
     statusEl.classList.add("is-ready");
     terminal.classList.add("is-complete");
   };
 
+  const typeTitle = async () => {
+    await typeText(typedTitle, titleText, 52);
+    titleCaret.classList.add("is-done");
+    sparkleEl.classList.add("is-in");
+  };
+
   if (reduceMotion) {
+    typedTitle.textContent = titleText;
+    titleCaret.classList.add("is-done");
+    sparkleEl.classList.add("is-in");
     typedRole.textContent = roles[0];
     codeEl.innerHTML = highlight(sourceCode);
     statusEl.textContent = "ready";
     statusEl.classList.add("is-ready");
     terminal.classList.add("is-complete");
   } else {
-    cycleRoles();
-    typeCode();
+    typeTitle().then(() => {
+      cycleRoles();
+      typeCode();
+    });
   }
 
   const revealItems = pageBody.querySelectorAll("h1, p, .collection-content, .column-list, figure, hr");
@@ -119,7 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.14, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.08, rootMargin: "0px 0px -24px 0px" }
   );
 
   revealItems.forEach((item) => observer.observe(item));
