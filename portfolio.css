@@ -131,32 +131,6 @@ body:not(.project-page) .page-header-icon {
   color: transparent !important;
   animation: titleShine 8s ease-in-out infinite;
 }
-/* Keep the homepage name stable; the animation belongs to the supporting copy. */
-body:not(.project-page) .page-title {
-  position: static;
-  white-space: normal;
-  overflow: visible;
-}
-.hello-code {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.28em;
-  margin: 0.75rem 0 0 !important;
-  padding: 0.48rem 0.7rem;
-  border: 1px solid rgba(115, 86, 216, 0.16);
-  border-radius: 999px;
-  color: #514869;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: clamp(0.72rem, 1.6vw, 0.84rem);
-  line-height: 1.35;
-  background: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 6px 18px rgba(74, 54, 125, 0.07);
-}
-.hello-code__comment { color: #9b8db7; }
-.hello-code__keyword { color: #d6538e; font-weight: 700; }
-.hello-code__name { color: #5c47bb; font-weight: 700; }
-.hello-code__operator { color: #7d7295; }
-.hello-code__string { color: #418a66; }
 body:not(.project-page) .page-header-icon .icon {
   display: inline-block;
   animation: iconFloat 3.6s ease-in-out infinite;
@@ -278,7 +252,8 @@ body:not(.project-page) [id="67ad7044-89b2-8376-9612-017486a80560"] {
 .hero-terminal__dots {
   position: relative;
   display: block;
-  margin-left: 1.7rem;
+  width: 2.46rem;
+  margin-left: 0;
   box-shadow: 0 0 0 0 rgba(255, 110, 154, 0.4);
 }
 .hero-terminal__dots::before,
@@ -288,11 +263,11 @@ body:not(.project-page) [id="67ad7044-89b2-8376-9612-017486a80560"] {
   top: 0;
 }
 .hero-terminal__dots::before {
-  left: -1.05rem;
+  left: 0.92rem;
   background: #ffb4c9;
 }
 .hero-terminal__dots::after {
-  left: 1.05rem;
+  left: 1.84rem;
   background: #a78bfa;
 }
 .hero-terminal__file {
@@ -698,7 +673,6 @@ a:hover { color: var(--accent-dark); }
 
   header { margin-bottom: 2.25rem; }
   .page-title { font-size: clamp(2.3rem, 13vw, 3.6rem) !important; }
-  .hello-code { justify-content: center; margin-top: 0.6rem !important; padding: 0.44rem 0.58rem; font-size: 0.68rem; }
   .column-list { flex-direction: column; align-items: stretch; gap: 1.35rem !important; }
   .column-list > .column { width: 100% !important; }
   .column-list:first-child { align-items: center; text-align: center; }

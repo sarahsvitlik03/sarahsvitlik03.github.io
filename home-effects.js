@@ -7,15 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const introCopy = hero?.querySelector(".column:last-child");
   if (!pageBody || !hero || !introCopy) return;
 
-  const pageTitle = document.querySelector(".page-title");
-  if (pageTitle && !pageTitle.parentElement.querySelector(".hello-code")) {
-    const hello = document.createElement("p");
-    hello.className = "hello-code";
-    hello.setAttribute("aria-label", "Hi, I’m Sarah Svitlik");
-    hello.innerHTML = '<span class="hello-code__comment">// </span><span class="hello-code__keyword">const</span> <span class="hello-code__name">hello</span> <span class="hello-code__operator">=</span> <span class="hello-code__string">&quot;Hi, I’m Sarah Svitlik ✨&quot;</span><span class="hello-code__operator">;</span>';
-    pageTitle.after(hello);
-  }
-
   const roles = [
     "software engineer",
     "full-stack developer",
