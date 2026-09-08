@@ -234,7 +234,7 @@ body:not(.project-page) [id="67ad7044-89b2-8376-9612-017486a80560"] {
 }
 .hero-terminal__bar {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 0.75rem;
   padding: 0.72rem 1rem;
@@ -278,6 +278,7 @@ body:not(.project-page) [id="67ad7044-89b2-8376-9612-017486a80560"] {
   text-transform: uppercase;
 }
 .hero-terminal__status {
+  justify-self: end;
   color: #f3c6d7;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.7rem;
