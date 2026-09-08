@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
   role: "Software Engineer",
   location: "Waterbury, CT",
   experience: "4+ years",
-  stack: ["Swift", "Kotlin", "React", "Flask"],
+  stack: ["C/C++", "Python", "JavaScript", "Swift", "Kotlin"],
+  tools: ["React", "Flask", "Node.js", "MySQL", "MongoDB", "Firebase"],
   focus: "clean architecture + thoughtful UX"
 };`;
 
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   terminal.setAttribute("aria-label", "Animated code sample introducing Sarah");
   terminal.innerHTML = `
     <div class="hero-terminal__bar">
-      <span class="hero-terminal__dots" aria-hidden="true"></span>
+      <span class="hero-terminal__dots" aria-hidden="true"><i></i><i></i><i></i></span>
       <span class="hero-terminal__status">compiling…</span>
     </div>
     <pre class="hero-terminal__body"><code class="hero-terminal__code"></code><span class="hero-caret hero-caret--code" aria-hidden="true"></span></pre>

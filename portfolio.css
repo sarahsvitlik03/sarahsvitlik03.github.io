@@ -241,35 +241,13 @@ body:not(.project-page) [id="67ad7044-89b2-8376-9612-017486a80560"] {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.04);
 }
-.hero-terminal__dots,
-.hero-terminal__dots::before,
-.hero-terminal__dots::after {
-  width: 0.62rem;
-  height: 0.62rem;
-  border-radius: 50%;
-  background: #ff6e9a;
-}
 .hero-terminal__dots {
-  position: relative;
-  display: block;
-  width: 2.46rem;
-  margin-left: 0;
-  box-shadow: 0 0 0 0 rgba(255, 110, 154, 0.4);
+  display: inline-flex;
+  gap: 0.38rem;
 }
-.hero-terminal__dots::before,
-.hero-terminal__dots::after {
-  content: "";
-  position: absolute;
-  top: 0;
-}
-.hero-terminal__dots::before {
-  left: 0.92rem;
-  background: #ffb4c9;
-}
-.hero-terminal__dots::after {
-  left: 1.84rem;
-  background: #a78bfa;
-}
+.hero-terminal__dots i { display: block; width: 0.62rem; height: 0.62rem; border-radius: 50%; background: #ff9db7; }
+.hero-terminal__dots i:nth-child(2) { background: #ff6e9a; }
+.hero-terminal__dots i:nth-child(3) { background: #a78bfa; }
 .hero-terminal__file {
   color: rgba(255, 255, 255, 0.72);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
