@@ -498,15 +498,23 @@ a:hover { color: var(--accent-dark); }
   font-size: 0.78rem;
   font-weight: 600;
 }
-.project-summary .project-repository {
-  margin: 0.9rem 0 0 !important;
+.project-repositories { margin-top: 0.9rem; }
+.project-repositories::before {
+  content: "⌘  SOURCE CODE";
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--accent);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
 }
+.project-summary .project-repository { margin: 0.45rem 0 0 !important; }
+.project-summary .project-repository:first-of-type { margin-top: 0 !important; }
 .project-summary .project-repository .source {
   padding: 0.8rem 0.9rem;
 }
 .project-summary .project-repository .source::before {
-  content: "⌘  SOURCE CODE";
-  margin-bottom: 0.32rem;
+  display: none;
 }
 .project-repository-link {
   color: var(--accent-dark) !important;

@@ -65,22 +65,30 @@ document.addEventListener("DOMContentLoaded", () => {
     summary.append(expoLink);
   }
 
-  const repositorySource = Array.from(body.querySelectorAll(".source")).find((source) =>
+  const repositorySources = Array.from(body.querySelectorAll(".source")).filter((source) =>
     /^https:\/\/github\.com\//i.test(source.textContent.trim())
   );
-  if (repositorySource) {
-    const repositoryUrl = repositorySource.textContent.trim();
-    const repositoryLink = document.createElement("a");
-    repositoryLink.className = "project-repository-link";
-    repositoryLink.href = repositoryUrl;
-    repositoryLink.target = "_blank";
-    repositoryLink.rel = "noopener";
-    repositoryLink.textContent = "View source on GitHub ↗";
-    repositoryLink.setAttribute("aria-label", "View the project source code on GitHub");
-    repositorySource.replaceChildren(repositoryLink);
-    const repository = repositorySource.closest("figure") ?? repositorySource;
-    repository.classList.add("project-repository");
-    summary.append(repository);
+  if (repositorySources.length) {
+    const repositories = document.createElement("section");
+    repositories.className = "project-repositories";
+    repositories.setAttribute("aria-label", "Project source code");
+    repositorySources.forEach((repositorySource) => {
+      const repositoryUrl = repositorySource.textContent.trim();
+      const repositoryName = new URL(repositoryUrl).pathname.split("/").filter(Boolean).pop()
+        ?.replace(/[-_]+/g, " ") ?? "repository";
+      const repositoryLink = document.createElement("a");
+      repositoryLink.className = "project-repository-link";
+      repositoryLink.href = repositoryUrl;
+      repositoryLink.target = "_blank";
+      repositoryLink.rel = "noopener";
+      repositoryLink.textContent = `View ${repositoryName} ↗`;
+      repositoryLink.setAttribute("aria-label", `View ${repositoryName} source code on GitHub`);
+      repositorySource.replaceChildren(repositoryLink);
+      const repository = repositorySource.closest("figure") ?? repositorySource;
+      repository.classList.add("project-repository");
+      repositories.append(repository);
+    });
+    summary.append(repositories);
   }
 
   body.prepend(summary);
