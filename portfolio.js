@@ -65,6 +65,24 @@ document.addEventListener("DOMContentLoaded", () => {
     summary.append(expoLink);
   }
 
+  const repositorySource = Array.from(body.querySelectorAll(".source")).find((source) =>
+    /^https:\/\/github\.com\//i.test(source.textContent.trim())
+  );
+  if (repositorySource) {
+    const repositoryUrl = repositorySource.textContent.trim();
+    const repositoryLink = document.createElement("a");
+    repositoryLink.className = "project-repository-link";
+    repositoryLink.href = repositoryUrl;
+    repositoryLink.target = "_blank";
+    repositoryLink.rel = "noopener";
+    repositoryLink.textContent = "View source on GitHub ↗";
+    repositoryLink.setAttribute("aria-label", "View the project source code on GitHub");
+    repositorySource.replaceChildren(repositoryLink);
+    const repository = repositorySource.closest("figure") ?? repositorySource;
+    repository.classList.add("project-repository");
+    summary.append(repository);
+  }
+
   body.prepend(summary);
 
   const photoSources = document.body.dataset.projectPhotos?.split("|").filter(Boolean);
