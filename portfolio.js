@@ -65,6 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
     summary.append(expoLink);
   }
 
+  if (document.title === "Station Engine" && !body.textContent.includes("github.com/TANYT-ORG/ChargerStation")) {
+    const chargerStationSource = document.createElement("div");
+    chargerStationSource.className = "source";
+    chargerStationSource.textContent = "https://github.com/TANYT-ORG/ChargerStation";
+    body.append(chargerStationSource);
+  }
+
   const repositorySources = Array.from(body.querySelectorAll(".source")).filter((source) =>
     /^https:\/\/github\.com\//i.test(source.textContent.trim())
   );
