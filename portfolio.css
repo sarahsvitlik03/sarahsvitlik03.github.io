@@ -412,6 +412,31 @@ a:hover { color: var(--accent-dark); }
   background: transparent;
 }
 .project-summary p { margin: 0; }
+.project-stack {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(115, 86, 216, 0.14);
+}
+.project-stack__label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--accent);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+.project-stack__tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.project-stack__tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  color: #554773;
+  font-size: 0.74rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(115, 86, 216, 0.12);
+}
 .project-summary .project-live-link { margin-top: 1rem; }
 .project-summary .project-live-link a {
   display: inline-flex;

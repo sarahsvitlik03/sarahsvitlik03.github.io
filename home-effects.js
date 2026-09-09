@@ -23,6 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
   focus: "clean architecture + thoughtful UX"
 };`;
 
+  const projectOrder = ["station-engine.html", "habit-tracker.html", "date-spark.html", "memory-game.html"];
+  const projectTable = pageBody.querySelector("table.collection-content tbody");
+  if (projectTable) {
+    const rows = Array.from(projectTable.querySelectorAll("tr"));
+    rows.sort((first, second) => {
+      const firstHref = first.querySelector("a")?.getAttribute("href") ?? "";
+      const secondHref = second.querySelector("a")?.getAttribute("href") ?? "";
+      return projectOrder.indexOf(firstHref.split("/").pop()) - projectOrder.indexOf(secondHref.split("/").pop());
+    });
+    rows.forEach((row) => projectTable.append(row));
+  }
+
   const tagline = document.createElement("p");
   tagline.className = "hero-typewriter";
   tagline.innerHTML = `<span class="hero-typewriter__prefix">currently</span> <span class="hero-typewriter__text"></span><span class="hero-caret" aria-hidden="true"></span>`;

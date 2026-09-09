@@ -13,6 +13,27 @@ document.addEventListener("DOMContentLoaded", () => {
   summary.className = "project-summary";
   summary.append(detailsHeading, details);
 
+  const technologies = Array.from(document.querySelectorAll(".properties .selected-value"))
+    .map((technology) => technology.textContent.trim())
+    .filter(Boolean);
+  if (technologies.length) {
+    const stack = document.createElement("div");
+    stack.className = "project-stack";
+    stack.setAttribute("aria-label", "Core technologies");
+    const label = document.createElement("span");
+    label.className = "project-stack__label";
+    label.textContent = "CORE STACK";
+    const tags = document.createElement("div");
+    tags.className = "project-stack__tags";
+    technologies.forEach((technology) => {
+      const tag = document.createElement("span");
+      tag.textContent = technology;
+      tags.append(tag);
+    });
+    stack.append(label, tags);
+    summary.append(stack);
+  }
+
   const liveHeading = Array.from(body.querySelectorAll("h1, h2, h3")).find(
     (heading) => /^(live (website|demo) link)$/i.test(heading.textContent.trim())
   );

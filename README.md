@@ -1,6 +1,17 @@
-# Sarah Svitlik Portfolio
+# Sarah Svitlik — Software Engineering Portfolio
 
-Static portfolio site hosted with GitHub Pages.
+Personal portfolio for Sarah Svitlik, a software engineer building polished web, mobile, and full-stack experiences. Visit the live site at [sarahsvitlik03.github.io](https://sarahsvitlik03.github.io/).
+
+## Featured work
+
+| Project | Focus | Core technologies |
+| --- | --- | --- |
+| Station Engine | Multi-platform content-management system for WNHU 88.7 FM | C++, Flask, Kotlin, MySQL, SwiftUI |
+| Habit Tracker | Household chore-tracking web application | Vue.js, Express.js, Node.js, MongoDB |
+| Date Spark | iOS app for personalized date ideas and discovery | Swift, SwiftUI, Firebase, OpenAI |
+| Pokémon Memory Game | Interactive browser memory game | React, JavaScript, Vite |
+
+Each project includes a focused overview, project photos, technology details, and relevant live/demo or source links.
 
 ## Local preview
 
